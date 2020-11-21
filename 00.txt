@@ -1,0 +1,44 @@
+
+    <!--  组件访问State中数据的第一种方式
+            this.$store.state.全局数据名称
+            但是在 template 里面，如果要访问什么的话是可以省略 this 的
+       -->
+    <!-- 组件访问State中数据的第二种方式 
+            1、从 vuex 中按需导入 mapState 函数
+            import { mapState } from 'vuex'
+            2、通过刚才导入的 mapState 函数，将当前组件需要的全局数据，映射为当前组件的 computed计算属性
+            computed: {
+                ...mapState(['count'])
+            }
+        -->
+
+    <!-- Mutation 用于变更Store中的数据
+            只能通过mutation变更store数据，不可以直接操作store中的数据
+            通过这种方式虽然操作起来稍微繁琐一些，但是可以集中监控所有数据的变化
+            触发 mutations 的第一种方式 commit
+            btnHandle1() {
+            this.$store.commit('add') // 触发 mutations 的第一种方式 commit
+            }
+
+        触发mutation的第二种方式
+            从 vuex 中按需导入 mapMutations 函数
+            import { mapMutations } from 'vuex'
+            通过刚才导入的mapMutation函数，将需要的mutations函数，映射为当前组件的methods方法
+            methods: {
+                ...mapMutations(['add' , 'addN'])
+            }
+    -->   
+
+
+    <!--
+        Getter 可以对Store中的已有数据进行加工处理形成新的数据
+        1、Getter可以对Store中已有的数据加工处理之后形成新的数据，类似Vue的计算属性
+        2、Store中数据发生变化，Get特人的数据也会跟着变化
+        使用getter的第一种方式：
+            this.$store.getters.名称
+        使用getter的第二种方式：
+            import { mapGetters } from 'vuex'
+            computed: {
+                ...mapGetters(['showNum]')
+            }
+    -->
